@@ -12,29 +12,30 @@ int main() {
 	int c;
 	std::vector<int> v;
 	int cnt = 0;
-	do {
-		c = getchar();
-		if (c != EOF) {
-			printf("%c", c);
-			v.push_back(c);
-		} else
+	while (1) {
+		c = getchar();            // Get one character from the input
+		if (c == EOF) {
 			break;
-	} while (true);
-
-	printf("%d", v[0]);
-	int size = v.size();
-	printf("%d", size);
-	int T = 13;
-	int max = -1;
-	for (unsigned int i = 0; i < size - T; i++) {
-		int sum = 1;
-		for (int j = 0; j < T; i++) {
-			sum *= v[i + j];
-		}
-		printf("%d", sum);
-		if (sum > max)
-			max = sum;
+		}  // Exit the loop if we receive EOF ("end of file")
+		putchar(c);
+		if (c - '0' >= 0)
+			v.push_back(c - '0');
 	}
-	printf("%d", max);
-	return 0;
+	printf("\n");
+	for (int i = 0; i < v.size(); ++i) {
+		printf("%d\n", v[i]);
+	}
+	printf("%d %d \n", v[0], (int) v.size());
+	int T = 13;
+	long long max = -1;
+	for (int i = 0; i < v.size() - T; i++) {
+		long long prod = 1;
+		for (int j = 0; j < T; j++) {
+			prod *= (long) v[i + j];
+		}
+		if (prod > max) {
+			max = prod;
+		}
+	}
+	printf("max prod %lld\n", max);
 }
