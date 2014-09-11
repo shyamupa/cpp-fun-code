@@ -97,10 +97,11 @@ void GenerateCodes(const INode* node, const HuffCode& prefix,
 
 int main() {
 	// Build frequency table
-	int frequencies[UniqueSymbols] = { 0 };
-	for (int i = 0; i < UniqueSymbols; i++) {
-		printf("%d\n",i);
-	}
+	int frequencies[UniqueSymbols] = { 0 };	// initialize all to 0
+
+//	for (int i = 0; i < UniqueSymbols; i++) {
+//		printf("%d\n",i);
+//	}
 	const char* ptr = SampleString;
 	while (*ptr != '\0')
 		++frequencies[*ptr++];
