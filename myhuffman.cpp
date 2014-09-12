@@ -39,6 +39,24 @@ void addWord(char* word, int c) {
 	huff_q.push(w);
 }
 
+void generateCode(Word* root, std::string prefix) {
+	root->code = (char*) malloc(100 * sizeof(char));
+	if(root->right==NULL && root->left==NULL)
+		strcpy(root->code, prefix.c_str());
+	if (root->right)
+		generateCode(root->right, prefix.append("1"));
+	if (root->left)
+		generateCode(root->left, prefix.append("0"));
+
+}
+void printTree(Word* root) {
+	if (root->left)
+		printTree(root->left);
+	if (root->right)
+		printTree(root->right);
+	if(root->right==NULL && root->left==NULL)
+		printf("WORD %s CODE %s COUNT %d\n", root->word, root->code, root->count);
+}
 void huffman() {
 	using namespace std;
 	char tmp[100];
@@ -56,6 +74,8 @@ void huffman() {
 			w->word = (char *) calloc(length, sizeof(char));
 			strcpy(w->word, word1->word);
 			strcat(w->word, word2->word);
+w->left=word1;
+w->right=word2;
 			w->count = word2->count + word1->count;
 			huff_q.push(w);
 		} else {
@@ -65,12 +85,15 @@ void huffman() {
 	printf("FINALLY\n");
 
 //	while (!huff_q.empty()) {
-//		Word* tmp = huff_q.top();
-//		huff_q.pop();
+	Word* root = huff_q.top();
+	huff_q.pop();
+	generateCode(root, std::string(""));
+	printTree(root);
 //		cout << tmp->word << endl;
 //		cout << tmp->count << endl;
 //	}
 }
+
 int main(int argc, char **argv) {
 	using namespace std;
 	freopen("input.txt", "r", stdin);
