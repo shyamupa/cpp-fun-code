@@ -19,9 +19,9 @@ typedef struct Word {
 
 class CompareWord {
 public:
-	bool operator()(Word* t1, Word* t2) // Returns true if t1 is earlier than t2
+	bool operator()(Word* t1, Word* t2) // Returns true if t1 is earlier than t2 (from left to right)
 			{
-		if (t1->count > t2->count)
+		if (t1->count > t2->count)	// we want lowest priority to be on top
 			return true;
 		else
 			return false;
