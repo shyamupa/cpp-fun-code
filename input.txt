@@ -1,0 +1,6 @@
+5
+the 10
+a 20
+ball 3
+xkcd 1
+jazz 1
