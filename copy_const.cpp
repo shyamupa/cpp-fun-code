@@ -26,17 +26,18 @@ Line::Line(int len) {
 	// allocate memory for the pointer;
 	ptr = new int;
 	*ptr = len;
-	cout << "Normal constructor allocating ptr." << *ptr << endl;
+	cout << "Normal constructor allocating ptr." << *ptr << " Ptr is " << ptr << endl;
+
 }
 
 Line::Line(const Line &obj) {
 	ptr = new int;
 	*ptr = *obj.ptr; // copy the value
-	cout << "Copy constructor allocating ptr." << *ptr << endl;
+	cout << "Copy constructor allocating ptr." << *ptr << " Ptr is " << ptr << endl;
 }
 
 Line::~Line(void) {
-	cout << "Freeing memory!" << *ptr << endl;
+	cout << "Freeing memory!" << *ptr << " Ptr is " << ptr << endl;
 	delete ptr;
 }
 int Line::getLength(void) {
