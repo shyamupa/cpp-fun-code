@@ -21,7 +21,7 @@ namespace bar
 
 namespace foo
 {
-	double this_too() {return 2*value();}
+  double this_too() {return 2*value();}
 }
 
 int main () {
