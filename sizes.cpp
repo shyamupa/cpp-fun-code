@@ -13,6 +13,9 @@ using namespace std;
 
 
 int main() {
+  cout << "CHAR" << endl;
+  // cout << std::numeric_limits<char>::min() << " TO "<< std::numeric_limits<char>::max() << endl;
+  cout << "size of CHAR = " << sizeof(char) << endl;
   cout << "INT" << endl;
   cout << std::numeric_limits<int>::min() << " TO "<< std::numeric_limits<int>::max() << endl;
   cout << "size of INT = " << sizeof(int) << endl;
