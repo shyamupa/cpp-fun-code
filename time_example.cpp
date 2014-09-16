@@ -15,7 +15,8 @@ main()
   printf ("using UNIX function time to measure wallclock time ... \n");
   printf ("using UNIX function clock to measure CPU time ... \n");
 
-  t0 = time(NULL);
+  // start recording
+  t0 = time(NULL);		
   c0 = clock();
 
   printf ("\tbegin (wall):            %ld\n", (long) t0);
@@ -31,6 +32,7 @@ main()
     c = b - a;
   }
 
+  // finish recording
   t1 = time(NULL);
   c1 = clock();
 
