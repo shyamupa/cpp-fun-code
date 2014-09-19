@@ -1,17 +1,18 @@
-#include <stdio.h>
-#include <queue>
 #include <iostream>
-#include <cstring>
-#include <cstdlib>
+#include <fstream>
+using namespace std;
 
-int main(int argc, char **argv) {
-  using namespace std;
-  while (true) {
-    string x;
-    freopen("in.txt","r",stdin);
-    cin >> x;
-    if( cin.eof() ) break;
-    cout << x << endl;
-  }
+int main()
+{
+  ifstream iFile("in.txt");// input.txt has integers, one per line
 
+  while (true)
+    {
+      int x;
+      iFile >> x;
+      if(iFile.eof()) break;
+      cout << x << endl;
+    }
+
+  return 0;
 }
